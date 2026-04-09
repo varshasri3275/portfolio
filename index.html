@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varsha Sri | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050510;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== Animated Background ===== */
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(139,92,246,0.4), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(236,72,153,0.4), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(34,197,94,0.3), transparent 50%);
+    animation: moveBg 12s ease-in-out infinite alternate;
+}
+
+/* Moving grid overlay */
+.grid-overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size:40px 40px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes moveBg{
+    0%{transform:translate(0,0);}
+    50%{transform:translate(-50px,50px);}
+    100%{transform:translate(50px,-50px);}
+}
+
+@keyframes gridMove{
+    0%{background-position:0 0;}
+    100%{background-position:40px 40px;}
+}
+
+/* ===== Navbar ===== */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:fixed;
+    width:100%;
+    top:0;
+    backdrop-filter:blur(10px);
+}
+
+header h2{
+    color:#8b5cf6;
+}
+
+nav a{
+    margin-left:25px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#8b5cf6;
+}
+
+/* ===== Sections ===== */
+section{
+    padding:120px 8%;
+    text-align:center;
+}
+
+h2{
+    margin-bottom:40px;
+    font-size:36px;
+}
+
+/* ===== Hero ===== */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.hero h1{
+    font-size:60px;
+    background:linear-gradient(90deg,#8b5cf6,#ec4899);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:600px;
+    opacity:0.8;
+}
+
+/* ===== Glass Cards ===== */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(139,92,246,0.4);
+}
+
+.cert-card{
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(139,92,246,0.3);
+    transition:0.4s;
+}
+
+.cert-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(236,72,153,0.4);
+}
+
+.cert-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 20px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#8b5cf6,#ec4899);
+    text-decoration:none;
+    color:white;
+}
+
+/* ===== Contact Glass Box ===== */
+.contact-box{
+    max-width:500px;
+    margin:auto;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(25px);
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+}
+
+button{
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(90deg,#8b5cf6,#ec4899);
+    color:white;
+    cursor:pointer;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:40px;
+    }
+}
+/* ===== Contact Section ===== */
+
+#contact{
+    padding:120px 8%;
+    text-align:center;
+}
+
+.contact-box{
+    max-width:600px;
+    margin:auto;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(139,92,246,0.3);
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    margin:25px 0;
+    gap:20px;
+    padding:15px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.contact-item:hover{
+    background:rgba(139,92,246,0.1);
+    transform:translateX(8px);
+}
+
+.icon{
+    font-size:28px;
+}
+
+.contact-item h4{
+    margin-bottom:5px;
+    color:#8b5cf6;
+}
+
+.contact-item a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    opacity:0.8;
+}
+
+.contact-item a:hover{
+    opacity:1;
+}
+
+/* ===== About Section ===== */
+
+#about{
+    padding:120px 8%;
+    text-align:center;
+}
+
+.about-container{
+    max-width:800px;
+    margin:auto;
+}
+
+.about-container p{
+    margin-bottom:20px;
+    line-height:1.7;
+    font-size:16px;
+    opacity:0.9;
+}
+
+.resume-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#8b5cf6,#ec4899);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.resume-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px rgba(139,92,246,0.6);
+}
+
+/* ===== Certifications Section ===== */
+
+#certifications{
+    padding:120px 8%;
+    text-align:center;
+}
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.cert-card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(139,92,246,0.3);
+    transition:0.4s;
+}
+
+.cert-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(139,92,246,0.4);
+}
+
+.cert-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.cert-content{
+    padding:20px;
+    text-align:left;
+}
+
+.cert-content h3{
+    color:#8b5cf6;
+    margin-bottom:10px;
+}
+
+.cert-content p{
+    font-size:14px;
+    margin:5px 0;
+    opacity:0.9;
+}
+
+.cert-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 18px;
+    border-radius:25px;
+    background:linear-gradient(90deg,#8b5cf6,#ec4899);
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+
+/* ===== Skills ===== */
+.skills-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-top:30px; }
+.skill-card{ background:rgba(255,255,255,0.08); padding:18px; border-radius:12px;
+    text-align:center; transition:0.3s; }
+.skill-card:hover{ transform:translateY(-6px); background:rgba(139,92,246,0.15); }
+.skill-card img{ width:48px; height:48px; margin-bottom:10px; }
+.skill-card h4{ margin-top:8px; font-size:16px; font-weight:600; }
+
+/* ===== Education Section ===== */
+
+#education{
+    padding:120px 8%;
+    text-align:center;
+}
+
+.edu-timeline{
+    position:relative;
+    max-width:800px;
+    margin:auto;
+}
+
+.edu-timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+    width:2px;
+    height:100%;
+    background:linear-gradient(to bottom,#8b5cf6,#ec4899);
+    transform:translateX(-50%);
+}
+
+.edu-card{
+    position:relative;
+    width:50%;
+    padding:20px;
+    margin:40px 0;
+}
+
+.edu-card:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.edu-card:nth-child(even){
+    left:50%;
+}
+
+.edu-content{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    padding:20px;
+    border-radius:20px;
+    border:1px solid rgba(139,92,246,0.3);
+    transition:0.3s;
+}
+
+.edu-content:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(139,92,246,0.3);
+}
+
+.edu-year{
+    font-weight:600;
+    color:#8b5cf6;
+    margin-bottom:10px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .edu-timeline::before{
+        left:10px;
+    }
+
+    .edu-card{
+        width:100%;
+        left:0 !important;
+        text-align:left;
+        padding-left:40px;
+    }
+}
+
+.contact-form {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-form form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+/* ===== Project Card Styling ===== */
+
+.project-card p{
+    font-size:14px;
+    margin:10px 0;
+    opacity:0.8;
+}
+
+.tech-stack{
+    font-size:13px;
+    margin:8px 0 15px;
+    color:#8b5cf6;
+}
+
+.project-links{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.project-links a{
+    padding:6px 14px;
+    border-radius:20px;
+    text-decoration:none;
+    font-size:13px;
+    background:linear-gradient(90deg,#8b5cf6,#ec4899);
+    color:white;
+    transition:0.3s;
+}
+
+.project-links a:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px rgba(139,92,246,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="grid-overlay"></div>
+
+<header>
+    <h2>Varsha Sri</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Full Stack Developer</h1>
+    <p>Passionate Full Stack Developer crafting secure, scalable, and user-focused web applications with Java and modern technologies.</p>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+
+    <div class="about-container">
+        <p>
+            I am a passionate and results-driven <strong>Full Stack Developer</strong> specializing in 
+            <strong>Java and Spring Boot</strong>, with hands-on experience in building secure and scalable web applications.
+            During my internship at <strong>Soft Logic Systems</strong>, I developed and maintained 
+            full-stack applications using Spring Boot, MySQL, and modern frontend technologies.
+        </p>
+
+        <p>
+            I have built real-world projects such as a 
+            <strong>Spring Boot Microservices-based Expense Tracker</strong> with JWT authentication 
+            and an <strong>UpSkill Learning Platform</strong> with secure user registration and database integration.
+            I enjoy solving real-world problems and continuously improving my technical expertise.
+        </p>
+
+        <a href="https://drive.google.com/file/d/19d146edG5ST0RM94TC7AbmhsJ5lvjEwe/view?usp=sharing" download class="resume-btn">
+            Download Resume
+        </a>
+    </div>
+</section>
+
+
+<section id="skills" class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"><h4>Java</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"><h4>Python</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"><h4>HTML</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"><h4>CSS</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"><h4>JavaScript</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"><h4>MySQL</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"><h4>MongoDB</h4></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg"><h4>Spring Boot</h4></div>
+    </div>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+
+    <div class="edu-timeline">
+
+        <!-- Education 1 -->
+        <div class="edu-card">
+            <div class="edu-year">2021 – 2025</div>
+            <div class="edu-content">
+                <h3>Bachelor of Technology – Information Technology</h3>
+                <p><strong>College:</strong> M.A.M College of Engineering and Technology</p>
+                <p><strong>CGPA:</strong> 8.38 / 10</p>
+            </div>
+        </div>
+
+        <!-- Education 2 -->
+        <div class="edu-card">
+            <div class="edu-year">2019 – 2021</div>
+            <div class="edu-content">
+                <h3>Higher Secondary (HSC)</h3>
+                <p><strong>School:</strong> Lakshmi Matric Higher Secondary School</p>
+                <p><strong>Percentage:</strong> 85%</p>
+            </div>
+        </div>
+
+        <!-- Education 3 -->
+        <div class="edu-card">
+            <div class="edu-year">2018 – 2019</div>
+            <div class="edu-content">
+                <h3>Secondary School (SSLC)</h3>
+                <p><strong>School:</strong> St. Antony's Matriculation Higher Secondary School</p>
+                <p><strong>Percentage:</strong> 86%</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="certifications">
+    <h2>Certifications</h2>
+
+    <div class="cert-grid">
+
+        <!-- 1 -->
+         <div class="cert-card">
+            <img src="images\SLA.png" alt="Certificate">
+            <div class="cert-content">
+                <h3>Java Full Stack </h3>
+                <p><strong>Issued By:</strong> Softlogic Systems</p>
+                <p><strong>Issued:</strong> Aug 2025</p>
+                <p><strong>Credential ID:</strong> SLA2025136632</p>
+                <!-- <a href="#" target="_blank" class="cert-btn">View Credential</a> -->
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="cert-card">
+            <img src="images\IBM.png" alt="Certificate">
+            <div class="cert-content">
+                <h3>JavaScript</h3>
+                <p><strong>Issued By:</strong> Etrain</p>
+                <p><strong>Issued:</strong> Aug 2025</p>
+                <p><strong>Credential ID:</strong> 10d34906d1454968ab8ebc99235d879e</p>
+                <!-- <a href="#" target="_blank" class="cert-btn">View Credential</a> -->
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="cert-card">
+            <img src="images\CSA (ServiceNow).jpg" alt="Certificate">
+            <div class="cert-content">
+                <h3>ServiceNow Certified System Administrator</h3>
+                <p><strong>Issued By:</strong> ServiceNow</p>
+                <p><strong>Issued:</strong> Dec 2025</p>
+                <!-- <p><strong>Credential ID:</strong> SB-2024-554</p> -->
+                <!-- <a href="#" target="_blank" class="cert-btn">View Credential</a> -->
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="cert-card">
+            <img src="images\HackerRank.jpeg" alt="Certificate">
+            <div class="cert-content">
+                <h3>Certificate of Accomplishment - Java(Basics)</h3>
+                <p><strong>Issued By:</strong> HackerRank</p>
+                <p><strong>Issued:</strong> Oct 2025</p>
+                <p><strong>Credential ID:</strong> 26e17fd89653</p>
+                <!-- <a href="#" target="_blank" class="cert-btn">View Credential</a> -->
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="cert-card">
+            <img src="images\Great Learning Java.jpg" alt="Certificate">
+            <div class="cert-content">
+                <h3>OOPs in Java</h3>
+                <p><strong>Issued By:</strong> Great Learning</p>
+                <p><strong>Issued:</strong> Mar 2023</p>
+                <p><strong>Credential ID:</strong> YYPKVGZJ</p>
+                <!-- <a href="#" target="_blank" class="cert-btn">View Credential</a> -->
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="cert-card">
+            <img src="images\Learntube.jpg" alt="Certificate">
+            <div class="cert-content">
+                <h3>Full Stack Web Development</h3>
+                <p><strong>Issued By:</strong> LearnTube.ai</p>
+                <p><strong>Issued:</strong> Dec 2024</p>
+                <p><strong>Credential ID:</strong> FUL-P-2-146640-0</p>
+                <!-- <a href="#" target="_blank" class="cert-btn">View Credential</a> -->
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <!-- <div class="cert-card">
+            <img src="https://media.licdn.com/dms/image/v2/D562DAQFD1OK_Na5iWQ/profile-treasury-image-shrink_800_800/B56ZyGuED8KkAY-/0/1771786748957?e=1772391600&v=beta&t=cvmVmEyOGUy7BMv1CIjj9HurdkY6yaAMb-UtSpUbPF8" alt="Certificate">
+            <div class="cert-content">
+                <h3>Up and Running with SQL and Databases</h3>
+                <p><strong>Issued By:</strong> Skill India</p>
+                <p><strong>Issued:</strong> Jun 2025</p>
+                <p><strong>Credential ID:</strong> 3f6ebe3f-57b0-4972-9e71-5dc359b4f953</p>
+               
+            </div>
+        </div> -->
+
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="grid">
+
+        <!-- Turf Reservation System -->
+        <div class="card project-card">
+            <h3>Turf Reservation System</h3>
+            <p>Online turf booking system built using Java, JDBC and MySQL with CRUD operations.</p>
+            <div class="tech-stack">Java • JDBC • MySQL</div>
+            <div class="project-links">
+                <a href="https://github.com/varshasri3275/Turf-Reservation-System" target="_blank">GitHub</a>
+                <!-- <a href="#" target="_blank">Live Demo</a> -->
+            </div>
+        </div>
+
+        <!-- Student Management System -->
+        <div class="card project-card">
+            <h3>Student Management System</h3>
+            <p>Spring Boot application to manage student records with REST APIs and database integration.</p>
+            <div class="tech-stack">Spring Boot • MySQL • REST API</div>
+            <div class="project-links">
+                <a href="https://github.com/varshasri3275/Student-Management-System" target="_blank">GitHub</a>
+                <!-- <a href="#" target="_blank">Live Demo</a> -->
+            </div>
+        </div>
+
+        <!-- Expense Tracker -->
+        <div class="card project-card">
+            <h3>Expense Tracker</h3>
+            <p>Microservices-based expense tracking system with JWT authentication and secure API design.</p>
+            <div class="tech-stack">Spring Boot • JWT • Microservices</div>
+            <div class="project-links">
+                <a href="https://github.com/varshasri3275/Expense-Tracker" target="_blank">GitHub</a>
+                <!-- <a href="#" target="_blank">Live Demo</a> -->
+            </div>
+        </div>
+
+        <!-- Learning Platform -->
+        <div class="card project-card">
+            <h3>Learning Platform</h3>
+            <p>Full Stack learning platform with user registration, authentication and course management.</p>
+            <div class="tech-stack">Spring Boot • HTML • CSS • JavaScript</div>
+            <div class="project-links">
+                <a href="https://github.com/varshasri3275/UpSkillNow" target="_blank">GitHub</a>
+                <!-- <a href="#" target="_blank">Live Demo</a> -->
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Get In Touch</h2>
+
+    <div class="contact-box">
+
+        <div class="contact-item">
+            <i class="icon">🔗</i>
+            <div>
+                <h4>LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/varsha-sri-r-1b0445249/" target="_blank">
+                    Linkedin
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <i class="icon">💻</i>
+            <div>
+                <h4>GitHub</h4>
+                <a href="https://github.com/varshasri3275" target="_blank">
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <i class="icon">✉️</i>
+            <div>
+                <h4>Email</h4>
+                <a href="mailto:varshasri3275@gmail.com">
+                    varshasri3275@gmail.com
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h3>Contact Me</h3>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+
+            <input type="email" name="email" placeholder="Your Email" required>
+
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</section>
+
+
+</body>
+</html>
